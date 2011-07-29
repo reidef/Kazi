@@ -21,6 +21,8 @@ module Kazi
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -45,5 +47,14 @@ module Kazi
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    
+    # Configure generators
+    config.generators do |g|
+      g.test_framework :rspec, :views => false, :fixture => true
+      g.view_specs false
+      g.helper_specs false
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.form_builder :simple_form
+    end
   end
 end
