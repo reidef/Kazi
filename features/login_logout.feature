@@ -13,7 +13,7 @@ Feature:Allow users to login and logout
     Then I should be on the task list
     And I should see "You are logged in."
   
-  @current
+  @passing
   Scenario: Logging Out
     Given there is a user with email "user@example.com" and password "secret"
     And I am logged in as "user@example.com" and password "secret"

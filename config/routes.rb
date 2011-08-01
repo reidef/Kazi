@@ -1,4 +1,6 @@
 Kazi::Application.routes.draw do
+  get "tasks/create"
+
   get "logout" => "sessions#destroy", :as => "logout"
   
   resources :sessions

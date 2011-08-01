@@ -11,9 +11,10 @@ describe SessionsController do
 
   describe "logging into the site" do
     it "should redirect to task list with notice" do
-      user = mock_model(User)
-      User.stub!(:find_by_email).and_return(user)
-      user.stub!(:authenticate).and_return(true)
+      user = mock()
+      User.stubs(:find_by_email).returns(user)
+      user.stubs(:authenticate).returns(true)
+      user.expects(:id).returns(1)
       get 'create'
       session[:user_id].should_not be_nil
       flash[:notice].should_not be_nil
@@ -21,9 +22,9 @@ describe SessionsController do
     end
     
     it "with bad password should re-render root with error" do
-      user = mock_model(User)
-      User.stub!(:find_by_email).and_return(user)
-      user.stub!(:authenticate).and_return(false)
+      user = mock
+      User.stubs(:find_by_email).returns(user)
+      user.stubs(:authenticate).returns(false)
       get 'create'
       session[:user_id].should be_nil
       flash.now[:alert].should_not be_nil
@@ -31,9 +32,9 @@ describe SessionsController do
     end
     
     it "with bad email should re-render root with error" do
-      user = mock_model(User)
-      User.stub!(:find_by_email).and_return(nil)
-      user.stub!(:authenticate).and_return(true)
+      user = mock
+      User.stubs(:find_by_email).returns(nil)
+      user.stubs(:authenticate).returns(true)
       get 'create'
       session[:user_id].should be_nil
       flash.now[:alert].should_not be_nil

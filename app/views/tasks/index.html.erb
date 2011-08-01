@@ -1,2 +1,12 @@
 <h1>Task List</h1>
 
+<% @tasks.each do |task| %>
+  <p><%= task.title %></p>
+<% end %>
+
+<h2>Add task:</h2>
+<%= simple_form_for @user.tasks.build do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>

@@ -88,6 +88,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mocha (0.9.12)
     multi_json (1.0.3)
     nokogiri (1.5.0)
     polyglot (0.3.2)
@@ -174,6 +175,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   launchy
+  mocha
   rails (= 3.1.0.rc5)
   rspec-rails
   sass-rails (~> 3.1.0.rc)
