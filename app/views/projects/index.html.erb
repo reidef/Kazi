@@ -1,0 +1,16 @@
+<h1>Projects#index</h1>
+
+<table>
+  <th>
+    <td>Number</td>
+    <td>Name</td>
+    <td></td>
+  </th>
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.project_num %></td>
+    <td><%= project.name %></td>
+    <td><%= link_to "Details", project %>
+  </tr>
+<% end %>
+</table>

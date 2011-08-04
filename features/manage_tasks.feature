@@ -5,7 +5,7 @@ Feature:Manage user tasks
   
   Background:
     Given there is a user with email "user@example.com" and password "secret" with tasks Paint the fence, Mow the lawn
-    Given there is a user with email "other.user@example.com" and password "secret" with tasks Walk the dog , Wash the dishes
+    And there is a user with email "other.user@example.com" and password "secret" with tasks Walk the dog , Wash the dishes
   
   @passing
   Scenario: Task list only shows tasks for specific users

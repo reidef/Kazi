@@ -13,6 +13,9 @@ module NavigationHelpers
     
     when /^the task list$/
       tasks_path
+    
+    when /^the project list$/
+      projects_path  
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

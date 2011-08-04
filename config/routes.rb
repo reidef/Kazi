@@ -1,10 +1,9 @@
 Kazi::Application.routes.draw do
-  get "tasks/create"
-
   get "logout" => "sessions#destroy", :as => "logout"
   
   resources :sessions
   resources :tasks
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
