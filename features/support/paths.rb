@@ -15,7 +15,10 @@ module NavigationHelpers
       tasks_path
     
     when /^the project list$/
-      projects_path  
+      projects_path
+    
+    when /^the details page for project number "(.*)"$/i
+      project_path(Project.find_by_project_num($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

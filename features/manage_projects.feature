@@ -28,17 +28,17 @@ Feature:Manage projects
     And I should see "98765"
     And I should see "Just a small project"
   
-  @current
+  @passing
   Scenario: Creating a new project
     Given I am on the project list
     When I follow "Add a project"
     And I fill in the following:
-      |project_num|08642|
-      |name|New Project|
-      |location|Farfromhome, IA|
+      |project_project_num|08642|
+      |project_name|New Project|
+      |project_location|Farfromhome, IA|
     And I press "Add Project"
     Then I should be on the project list
-    And I should see "Project Added"
+    And I should see "Project added."
     And I should see "08642"
     And I should see "New Project"
     And I should see "Farfromhome, IA"

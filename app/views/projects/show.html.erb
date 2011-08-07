@@ -14,3 +14,15 @@
   <strong>Location:</strong>
   <%= @project.location %>
 </p>
+
+<strong>Task List</strong>
+<% @project.tasks.each do |task| %>
+  <div><%= task.title %></div>
+<% end %>
+<strong>Add task:</strong>
+<%= simple_form_for @project.tasks.build do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :project_id %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>
