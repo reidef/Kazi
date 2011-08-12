@@ -2,7 +2,11 @@ Kazi::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   
   resources :sessions
-  resources :tasks
+  resources :tasks do
+    member do
+      put :mine
+    end
+  end
   resources :projects
 
   # The priority is based upon order of creation:

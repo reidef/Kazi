@@ -10,7 +10,7 @@ Feature:Manage tasks for a specific project
       | project_num | name            |
       | 12341       | The Big Project |
   
-  @current
+  @passing
   Scenario: Add a task to a project
     Given I go to the details page for project number "12341"
     When I add a task titled "Submit RFI"
@@ -18,3 +18,12 @@ Feature:Manage tasks for a specific project
     And I should see "Submit RFI"
     And I go to the task list
     And I should not see "Submit RFI"
+  
+  @passing
+  Scenario: Add an existing project task to user's task list
+    Given project number "12341" has tasks Set up calculations, Lay out wall
+    And I go to the details page for project number "12341"
+    When I follow "Add to my list" within "div#task_1"
+    Then I should be on the details page for project number "12341"
+    And I go to the task list
+    And I should see "Set up calculations"

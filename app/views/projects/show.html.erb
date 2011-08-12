@@ -17,7 +17,7 @@
 
 <strong>Task List</strong>
 <% @project.tasks.each do |task| %>
-  <div><%= task.title %></div>
+  <div id='task_<%= task.id %>'><%= task.title %> <%= link_to "Add to my list", mine_task_path(task), :method => :put %></div>
 <% end %>
 <strong>Add task:</strong>
 <%= simple_form_for @project.tasks.build do |f| %>
