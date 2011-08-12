@@ -8,12 +8,13 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     if @task.save
       if @task.project
-        redirect_to @task.project, :notice => "Task added to project."
+        flash[:notice] = "Task added to project."
       else
-        redirect_to tasks_path, :notice => "Task added."
+        flash[:notice] = "Task added."
       end
+      redirect_to :back
     else
-      redirect_to tasks_path, :alert => "Task not saved."
+      redirect_to :back, :error => "Task not saved."
     end
   end
   
