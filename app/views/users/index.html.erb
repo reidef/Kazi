@@ -7,10 +7,10 @@
   </tr>
 <% @users.each do |user| %>
   <tr id='user_<%= user.id %>'>
-    <td><%= link_to user.email, user %></td>
+    <td><%= link_to_if can?(:read, user), user.email, user %></td>
     <td><%= user.created_at %></td>
     <td><%= user.updated_at %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) if can? :update, user %>
+    <td><%= link_to 'Edit', edit_user_path(user) if can? :update, user  %>
         <%= link_to 'Destroy', user, :method => :delete, :confirm => 'Are you sure you want to delete this user?' if can? :destroy, user %></td>
   </tr>
 <% end %>
