@@ -44,6 +44,8 @@ describe SessionsController do
 
   describe "logging out of the site" do
     it "should redirect to root url with notice" do
+      user = mock
+      @controller.stubs(:logged_in?).returns(user)
       session[:user_id] = 1
       get 'destroy'
       session[:user_id].should be_nil

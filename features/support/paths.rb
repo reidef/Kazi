@@ -11,6 +11,9 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
     
+    when /^the login page$/
+      '/'
+    
     when /^the task list$/
       tasks_path
     

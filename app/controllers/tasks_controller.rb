@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_filter :login_required
+  
   def index
     @user = current_user
     @tasks = @user.tasks
@@ -14,7 +16,7 @@ class TasksController < ApplicationController
       end
       redirect_to :back
     else
-      redirect_to :back, :error => "Task not saved."
+      redirect_to :back, :alert => "Task not saved."
     end
   end
   

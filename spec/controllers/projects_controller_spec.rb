@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe ProjectsController do
+  
+  before do
+    user = mock
+    @controller.stubs(:logged_in?).returns(user)
+  end
 
   describe "going to the project list" do
     it "should be successful" do
