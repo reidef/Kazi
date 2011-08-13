@@ -7,4 +7,8 @@ FactoryGirl.define do
     end
     password "secret"
   end
+  
+  factory :admin, :parent => :user do
+    
+  end
 end

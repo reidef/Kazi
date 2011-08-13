@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   
   has_many :tasks
   
-  validates :password, :presence => true
+  validates :password, :presence => true, :on => :create
   validates :email, :presence => true,
                     :uniqueness => true,
                     :email_format => true
