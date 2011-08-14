@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   
   def create
     @project = Project.new(params[:project])
+    @project.organization = current_user.organization
     if @project.save
       redirect_to projects_path, :notice => "Project added."
     else

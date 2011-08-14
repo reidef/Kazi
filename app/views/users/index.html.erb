@@ -1,18 +1,22 @@
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Created at</th>
-    <th>Updated at</th>
-    <th></th>
-  </tr>
-<% @users.each do |user| %>
-  <tr id='user_<%= user.id %>'>
-    <td><%= link_to_if can?(:read, user), user.email, user %></td>
-    <td><%= user.created_at %></td>
-    <td><%= user.updated_at %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) if can? :update, user  %>
-        <%= link_to 'Destroy', user, :method => :delete, :confirm => 'Are you sure you want to delete this user?' if can? :destroy, user %></td>
-  </tr>
+<%= link_to 'Add an organization',new_organization_path if can? :create, Organization %>
+<% @organization_users.each do |organization, users| %>
+  <div><strong><%= organization.name %></strong> <%= link_to 'Edit', edit_organization_path(organization) if can? :update, organization %></div>
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th></th>
+    </tr>
+    <% users.each do |user| %>
+      <tr id='user_<%= user.id %>'>
+        <td><%= link_to_if can?(:read, user), user.email, user %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.updated_at %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) if can? :update, user  %>
+            <%= link_to 'Destroy', user, :method => :delete, :confirm => 'Are you sure you want to delete this user?' if can? :destroy, user %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "New \"#{organization.name}\" user", new_user_path(:organization => organization) if can? :create, User %>
 <% end %>
-</table>
-<%= link_to 'New user', new_user_path %>

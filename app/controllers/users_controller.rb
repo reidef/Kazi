@@ -2,15 +2,18 @@ class UsersController < ApplicationController
   before_filter :login_required
   
   def index
-    @users = User.all
+    @users = current_user.admin ? User.all : current_user.organization.users
+    @organization_users = @users.group_by { |user| user.organization }
   end
   
   def new
-    @user = User.new
+    @organization = Organization.find(params[:organization])
+    @user = @organization.users.build
   end
   
   def create
     @user = User.new(params[:user])
+    @user.organization = current_user.organization unless current_user.admin
     if @user.save
       redirect_to users_path, :notice => 'User created successfully.'
     else
