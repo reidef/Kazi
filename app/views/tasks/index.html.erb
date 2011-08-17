@@ -1,14 +1,21 @@
 <h1>Task List</h1>
 
 <%= form_tag complete_tasks_path, :method => :put do %>
+  <div class='sort-control'>
+    <span id='sort'>Sort</span>
+    <span id='save'>Save</span>
+  </div>
+  <div id='todo'>
   <% @tasks.todo.each do |task| %>
-    <div>
+    <div id='tasks_<%= task.id %>'>
       <%= check_box_tag "task_ids[]", task.id %>
       <%= task.title %>
     </div>
   <% end %>
+  </div>
   <%= submit_tag "Mark as complete" %>
 <% end %>
+
 <h2>Add task:</h2>
 <%= simple_form_for @user.tasks.build do |f| %>
   <%= f.input :user_id %>

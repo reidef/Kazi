@@ -49,5 +49,12 @@ class TasksController < ApplicationController
     Task.update_all({:completed_at => nil}, :id => params[:task_ids])
     redirect_to tasks_path, :notice => 'Task returned to your list.'
   end
+  
+  def prioritize
+    params[:tasks].each_with_index do |id, index|
+      Task.update_all({:user_priority => index+1}, :id => id)
+    end
+    render :nothing => true
+  end
 
 end

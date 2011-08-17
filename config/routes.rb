@@ -9,6 +9,7 @@ Kazi::Application.routes.draw do
     collection do
       put :complete
       put :uncomplete
+      put :prioritize
     end
   end
   resources :projects
