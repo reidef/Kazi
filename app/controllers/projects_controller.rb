@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :login_required
   
   def index
-    @projects = Project.all
+    @organization = current_user.organization
   end
   
   def show
@@ -22,5 +22,17 @@ class ProjectsController < ApplicationController
       redirect_to projects_path, :alert => "Project not saved."
     end
   end
-
+  
+  def edit
+    @project = Project.find(params[:id])
+  end
+  
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(params[:project])
+      redirect_to @project, :notice => 'Project updated.'
+    else
+      render 'edit', :alert => 'There was a problem saving your changes.'
+    end
+  end
 end

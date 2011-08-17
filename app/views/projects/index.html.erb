@@ -1,4 +1,4 @@
-<h1>Projects#index</h1>
+<h1>Projects</h1>
 <%= link_to "Add a project", new_project_path %>
 <table>
   <tr>
@@ -7,7 +7,7 @@
     <th>Location</th>
     <th></th>
   </tr>
-<% @projects.each do |project| %>
+<% @organization.projects.each do |project| %>
   <tr>
     <td><%= project.project_num %></td>
     <td><%= project.name %></td>
