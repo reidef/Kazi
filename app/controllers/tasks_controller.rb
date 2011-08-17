@@ -39,5 +39,15 @@ class TasksController < ApplicationController
     end
     redirect_to :back
   end
+  
+  def complete
+    Task.update_all({:completed_at => Time.now}, :id => params[:task_ids])
+    redirect_to tasks_path, :notce => 'Task marked complete.'
+  end
+  
+  def uncomplete
+    Task.update_all({:completed_at => nil}, :id => params[:task_ids])
+    redirect_to tasks_path, :notice => 'Task returned to your list.'
+  end
 
 end

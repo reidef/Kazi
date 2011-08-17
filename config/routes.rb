@@ -6,6 +6,10 @@ Kazi::Application.routes.draw do
     member do
       put :mine
     end
+    collection do
+      put :complete
+      put :uncomplete
+    end
   end
   resources :projects
   resources :users

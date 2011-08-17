@@ -1,12 +1,28 @@
 <h1>Task List</h1>
 
-<% @tasks.each do |task| %>
-  <p><%= task.title %></p>
+<%= form_tag complete_tasks_path, :method => :put do %>
+  <% @tasks.todo.each do |task| %>
+    <div>
+      <%= check_box_tag "task_ids[]", task.id %>
+      <%= task.title %>
+    </div>
+  <% end %>
+  <%= submit_tag "Mark as complete" %>
 <% end %>
-
 <h2>Add task:</h2>
 <%= simple_form_for @user.tasks.build do |f| %>
   <%= f.input :user_id %>
   <%= f.input :title %>
   <%= f.button :submit %>
+<% end %>
+
+<h2>Completed tasks</h2>
+<%= form_tag uncomplete_tasks_path, :method => :put do %>
+  <% @tasks.complete.each do |task| %>
+    <div>
+      <%= check_box_tag "task_ids[]", task.id %>
+      <%= task.title %> at <%= task.completed_at %>
+    </div>
+  <% end %>
+  <%= submit_tag "Return to todo list" %>
 <% end %>
