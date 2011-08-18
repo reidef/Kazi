@@ -8,7 +8,7 @@
   <div id='todo'>
   <% @tasks.todo.each do |task| %>
     <div id='tasks_<%= task.id %>'>
-      <%= check_box_tag "task_ids[]", task.id %>
+      <%= check_box_tag "task_ids[]", task.id, false, :disabled => !children_complete?(task) %>
       <%= task.title %>
     </div>
   <% end %>
