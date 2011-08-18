@@ -29,6 +29,7 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 gem 'cancan'
+gem 'ancestry'
 
 gem "rspec-rails", :group => [:test, :development]
 

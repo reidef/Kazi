@@ -16,9 +16,9 @@
 </p>
 
 <strong>Task List</strong>
-<% @project.tasks.each do |task| %>
-  <div id='task_<%= task.id %>'><%= task.title %> <%= link_to "Add to my list", mine_task_path(task), :method => :put %></div>
-<% end %>
+<div class='tasks'>
+  <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
+</div>
 <strong>Add task:</strong>
 <%= simple_form_for @project.tasks.build do |f| %>
   <%= f.input :user_id %>

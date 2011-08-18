@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817020224) do
+ActiveRecord::Schema.define(:version => 20110818005659) do
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(:version => 20110817020224) do
     t.integer  "project_id"
     t.datetime "completed_at"
     t.integer  "user_priority"
+    t.string   "ancestry"
   end
+
+  add_index "tasks", ["ancestry"], :name => "index_tasks_on_ancestry"
 
   create_table "users", :force => true do |t|
     t.string   "email"

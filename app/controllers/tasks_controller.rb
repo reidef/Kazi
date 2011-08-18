@@ -6,15 +6,19 @@ class TasksController < ApplicationController
     @tasks = @user.tasks
   end
   
+  def new
+    @parent = Task.find(params[:parent_id])
+    @task = Task.new(:parent_id => @parent.id, :project_id => @parent.project_id)
+  end
+  
   def create
     @task = Task.new(params[:task])
     if @task.save
       if @task.project
-        flash[:notice] = "Task added to project."
+        redirect_to @task.project, :notice => "Task added to project."
       else
-        flash[:notice] = "Task added."
+        redirect_to tasks_path, :notice => "Task added."
       end
-      redirect_to :back
     else
       redirect_to :back, :alert => "Task not saved."
     end

@@ -1,0 +1,9 @@
+<%= render @task.parent if @task.parent %>
+
+<%= simple_form_for @task do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :parent_id %>
+  <%= f.input :project_id %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>
