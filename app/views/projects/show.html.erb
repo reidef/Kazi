@@ -20,9 +20,4 @@
   <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
 </div>
 <strong>Add task:</strong>
-<%= simple_form_for @project.tasks.build do |f| %>
-  <%= f.input :user_id %>
-  <%= f.input :project_id %>
-  <%= f.input :title %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'tasks/form', :task => @project.tasks.build %>
