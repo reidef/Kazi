@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tasks {
+  span.complete {
+    text-decoration: line-through;
+  }
   .nested_tasks {
     margin-left: 30px;
     .nested_tasks .nested_tasks .nested_tasks {
