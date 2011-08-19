@@ -1,4 +1,4 @@
-<div id='task_<%= task.id %>'>
+<div class='task' id='task_<%= task.id %>'>
   <%= tag_class_if :span, task.title, "complete", task.completed_at? %>
   <%= " by #{task.user.email}" if task.user %>
   <%= link_to "Add to my list", mine_task_path(task), :method => :put unless task.user %>

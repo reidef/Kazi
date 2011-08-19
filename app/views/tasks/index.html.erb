@@ -9,6 +9,7 @@
   <% @tasks.todo.each do |task| %>
     <div id='tasks_<%= task.id %>'>
       <%= check_box_tag "task_ids[]", task.id, false, :disabled => !children_complete?(task) %>
+      <%= link_to task.project.project_num, task.project if task.project %>
       <%= task.title %>
     </div>
   <% end %>
@@ -16,8 +17,10 @@
   <%= submit_tag "Mark as complete" %>
 <% end %>
 
-<h2>Add task:</h2>
-<%= render 'tasks/form', :task => @user.tasks.build %>
+<div class='task-form'>
+  <h3>Add a task without a project:</h3>
+  <%= render 'tasks/form', :task => @user.tasks.build %>
+</div>
 
 <h2>Completed tasks</h2>
 <%= form_tag uncomplete_tasks_path, :method => :put do %>

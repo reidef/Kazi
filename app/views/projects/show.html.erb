@@ -15,9 +15,13 @@
   <%= @project.location %>
 </p>
 
-<strong>Task List</strong>
-<div class='tasks'>
-  <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
-</div>
-<strong>Add task:</strong>
-<%= render 'tasks/form', :task => @project.tasks.build %>
+<section>
+  <h1 class='fieldset'>Project Task List</h1>
+  <div class='tasks'>
+    <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
+  </div>
+  <div class='task-form'>
+    <h3>Add task to this project:</h3>
+    <%= render 'tasks/form', :task => @project.tasks.build %>
+  </div>
+</section>
