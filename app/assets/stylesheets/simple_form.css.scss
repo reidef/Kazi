@@ -1,0 +1,47 @@
+$label-width: 70px;
+$label-side-margin: 10px;
+$input-margin: $label-width + 2 * $label-side-margin;
+
+.simple_form {
+  label {
+    float: left;
+    width: $label-width;
+    text-align: right;
+    margin: 2px $label-side-margin;
+  }
+
+  div.input {
+    margin-bottom: 10px;
+  }
+
+  div.boolean, input[type='submit'] {
+    margin-left: $input-margin;
+  }
+
+  div.boolean label, label.collection_radio {
+    float: none;
+    margin: 0;
+  }
+
+  label.collection_radio {
+    margin-right: 10px;
+    margin-left: 2px;
+  }
+
+  .error {
+    clear: left;
+    margin-left: $input-margin;
+    font-size: 12px;
+    color: #D00;
+    display: block;
+  }
+
+  .hint {
+    clear: left;
+    margin-left: $input-margin;
+    font-size: 12px;
+    color: #555;
+    display: block;
+    font-style: italic;
+  }
+}
