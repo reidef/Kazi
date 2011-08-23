@@ -1,0 +1,9 @@
+<%= simple_form_for @project do |f| %>
+  <%= f.input :project_num, :label => 'Number' %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :engineer %>
+  <%= f.input :technician %>
+  <%= f.input :due_date %>
+  <%= f.button :submit %>
+<% end %>

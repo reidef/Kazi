@@ -1,5 +1,7 @@
 <h1>Task List</h1>
 
+<%= link_to 'Daily List', daily_tasks_path %>
+
 <%= form_tag complete_tasks_path, :method => :put do %>
   <div class='sort-control'>
     <span id='sort'>Sort</span>
@@ -11,6 +13,7 @@
       <%= check_box_tag "task_ids[]", task.id, false, :disabled => !children_complete?(task) %>
       <%= link_to task.project.project_num, task.project if task.project %>
       <%= task.title %>
+      <%= link_to 'Edit', edit_task_path(task) %>
     </div>
   <% end %>
   </div>

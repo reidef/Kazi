@@ -24,6 +24,10 @@ class TasksController < ApplicationController
     end
   end
   
+  def edit
+    @task = Task.find(params[:id])
+  end
+  
   def update
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
@@ -59,6 +63,11 @@ class TasksController < ApplicationController
       Task.update_all({:user_priority => index+1}, :id => id)
     end
     render :nothing => true
+  end
+  
+  def daily
+    @user = current_user
+    @tasks = @user.tasks
   end
 
 end

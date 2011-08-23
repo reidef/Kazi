@@ -10,6 +10,7 @@ Kazi::Application.routes.draw do
       put :complete
       put :uncomplete
       put :prioritize
+      get :daily
     end
   end
   resources :projects

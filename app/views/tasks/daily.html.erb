@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>Project Number</th>
+    <th>Project Name</th>
+    <th>Project Location</th>
+    <th>Project Engineer</th>
+    <th>Engineering Technicians</th>
+    <th>Project Design Meeting</th>
+    <th>Tasks</th>
+    <th>Anticipate Due Date</th>
+    <th>Required Due Date</th>
+  </tr>
+  <% @tasks.todo.each do |task| %>
+    <tr>
+      <td><%= task.project.project_num if task.project %></td>
+      <td><%= task.project.name if task.project %></td>
+      <td><%= task.project.location if task.project %></td>
+      <td><%= task.project.engineer if task.project %></td>
+      <td><%= task.project.technician if task.project %></td>
+      <td><%= task.project.project_num if task.project %></td>
+      <td><%= task.title %></td>
+      <td><%= task.due_date %></td>
+      <td><%= task.project.due_date if task.project %></td>
+    </tr>
+  <% end %>
+</table>
