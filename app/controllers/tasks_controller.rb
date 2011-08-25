@@ -68,7 +68,7 @@ class TasksController < ApplicationController
   def nest
     params[:tasks].each_with_index do |(task_id,parent_id), index|
       parent_id = nil if parent_id == "root"
-      Task.find(task_id).update_attributes(:parent_id => parent_id)
+      Task.find(task_id).update_attributes(:parent_id => parent_id, :project_priority => index)
     end
     render :nothing => true
   end

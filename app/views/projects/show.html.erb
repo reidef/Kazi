@@ -22,7 +22,7 @@
     <span id='save'>Save</span>
   </div>
   <ul class='tasks'>
-    <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
+    <%= nested_tasks @project.tasks.arrange(:order => :project_priority) %>
   </ul>
   <div class='task-form'>
     <h3>Add task to this project:</h3>

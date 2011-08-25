@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823035124) do
+ActiveRecord::Schema.define(:version => 20110825035848) do
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110823035124) do
     t.integer  "user_priority"
     t.string   "ancestry"
     t.date     "due_date"
+    t.integer  "project_priority"
   end
 
   add_index "tasks", ["ancestry"], :name => "index_tasks_on_ancestry"
