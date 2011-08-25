@@ -60,18 +60,14 @@ class TasksController < ApplicationController
   
   def prioritize
     params[:tasks].each_with_index do |id, index|
-      Task.update_all({:user_priority => index+1}, :id => id)
+      Task.find(id).update_attributes(:user_priority => index + 1)
     end
     render :nothing => true
   end
   
   def nest
-    # params[:tasks].each_with_index do |id, index|
-    #   Task.update_all({:user_priority => index+1}, :id => id)
-    # end
     params[:tasks].each_with_index do |(task_id,parent_id), index|
       parent_id = nil if parent_id == "root"
-      # Task.update_all({:parent_id => parent_id}, :id => task_id)
       Task.find(task_id).update_attributes(:parent_id => parent_id)
     end
     render :nothing => true
