@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#sort').click ->
+  $('body.tasks #sort').click ->
     $(@).hide()
     $('#save').show()
     $('#todo').sortable
@@ -12,7 +12,7 @@ jQuery ->
       scroll: true
     return
 
-  $('#save').click ->
+  $('body.tasks #save').click ->
     $.ajax
       type: 'put'
       data: $('#todo').sortable 'serialize'

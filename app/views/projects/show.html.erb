@@ -16,10 +16,14 @@
 </p>
 
 <section>
-  <h1 class='fieldset'>Project Task List</h1>
-  <div class='tasks'>
-    <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
+  <h2 class='fieldset'>Project Task List</h2>
+  <div class='sort-control'>
+    <span id='sort'>Sort</span>
+    <span id='save'>Save</span>
   </div>
+  <ul class='tasks'>
+    <%= nested_tasks @project.tasks.arrange(:order => :created_at) %>
+  </ul>
   <div class='task-form'>
     <h3>Add task to this project:</h3>
     <%= render 'tasks/form', :task => @project.tasks.build %>
