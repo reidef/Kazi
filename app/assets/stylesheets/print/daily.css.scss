@@ -1,0 +1,24 @@
+nav, #user_control {
+  display: none;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 11px;
+  tr {
+    border: 1px solid black;
+  }
+  col {
+    border: 1px solid black;
+    &#number { width: 14.38em; }       
+    &#name { width: 27.13em; }         
+    &#location { width: 23.88em; }
+    &#engineer { width: 12em; }   
+    &#technician { width: 12em; } 
+    &#meeting { width: 9em; }     
+    &#task { width: 44.8em; }     
+    &#task_due { width: 12em; }   
+    &#proj_due { width: 12em; }   
+  } 
+}   
