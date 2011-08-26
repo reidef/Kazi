@@ -31,7 +31,10 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
-      redirect_to @task
+        redirect_to @task.project, :notice => "Task updated."
+      else
+        redirect_to tasks_path, :notice => "Task updated."
+      end
     else
       render :action => 'edit'
     end
