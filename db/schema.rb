@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110827203525) do
+ActiveRecord::Schema.define(:version => 20110827230434) do
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110827203525) do
     t.boolean  "admin",           :default => false
     t.string   "role"
     t.integer  "organization_id"
+    t.string   "name"
   end
 
 end

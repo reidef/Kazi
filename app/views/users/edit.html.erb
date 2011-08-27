@@ -3,11 +3,12 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :organization_id %>
   <%= f.input :email %>
+  <%= f.input :name %>
   <fieldset>
     <legend>Change Password</legend>
     <p>To change your password, fill out the fields below. Leave them blank to leave your password the same.</p>
     <%= f.input :password, :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
+    <%= f.input :password_confirmation, :label => 'Confirm', :required => false %>
   </fieldset>
   <%= f.button :submit %>
 <% end %>

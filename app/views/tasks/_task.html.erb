@@ -1,6 +1,6 @@
 <div>
   <%= tag_class_if :span, task.title, "complete", task.completed_at? %>
-  <%= " by #{task.user.email}" if task.user %>
+  <%= " by #{task.user.name}" if task.user %>
   <%= link_to "Add to my list", mine_task_path(task), :method => :put unless task.user %>
   <%= link_to "Add subtask", new_task_path(:parent_id => task) %>
 </div>

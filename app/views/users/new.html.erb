@@ -3,7 +3,8 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :organization_id %>
   <%= f.input :email %>
+  <%= f.input :name %>
   <%= f.input :password %>
-  <%= f.input :password_confirmation %>
+  <%= f.input :password_confirmation, :label => 'Confirm' %>
   <%= f.button :submit %>
 <% end %>
