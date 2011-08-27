@@ -12,6 +12,7 @@ $input-margin: $label-width + 2 * $label-side-margin;
 
   div.input {
     margin-bottom: 10px;
+    clear: left;
   }
 
   div.boolean, input[type='submit'] {
