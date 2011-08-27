@@ -31,10 +31,13 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
     if @user.update_attributes(params[:user])
       redirect_to users_path, :notice => 'User updated.'
     else
-      render 'edit', :alert => 'There was an issue updating this user.'
+      flash.now.alert = 'There was an issue updating this user.'
+      render 'edit'
     end
   end
   
