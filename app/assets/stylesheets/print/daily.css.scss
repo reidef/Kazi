@@ -2,7 +2,16 @@ nav, #user_control {
   display: none;
 }
 
+ul.head {
+  margin: 0;
+  padding: 0;
+  li { list-style-type: none; }
+  li:nth-child(1) { float: left; }
+  li:nth-child(2) { float: right; }
+}
+
 table#daily {
+  clear: both;
   border: 1px solid black;
   border-collapse: collapse;
   font-size: 11px;
@@ -21,4 +30,4 @@ table#daily {
     &#task_due { width: 12em; }   
     &#proj_due { width: 12em; }   
   } 
-}   
+}
