@@ -1,0 +1,28 @@
+$user-control-height: 10px;
+#user_control {
+  float: right;
+  position: relative;
+  button {
+    font-size: $user-control-height;
+  }
+  ul.popup_menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: absolute;
+    right: 0px;
+    top: 2.4em;
+    display: none;
+    width: 80px;
+    border: 1px solid black;
+    background: white;
+    font-size: $user-control-height;
+    li {
+      a {
+        display: block;
+        padding: 0.4em;
+        &:hover { background: #4B7399;}
+      }
+    }
+  }
+}
