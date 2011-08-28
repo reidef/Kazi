@@ -4,24 +4,30 @@ $user-control-height: 10px;
   position: relative;
   button {
     font-size: $user-control-height;
+    z-index: 10;
   }
   ul.popup_menu {
-    margin: 0;
+    margin: 21px 0 0;
     padding: 0;
+    z-index: 5;
     list-style-type: none;
     position: absolute;
-    right: 0px;
-    top: 2.4em;
+    right: 1px;
+    top: 0px;
     display: none;
     width: 80px;
-    border: 1px solid black;
-    background: white;
+    border: 1px solid #C5DBEC;
+    background: #DFEFFC;
     font-size: $user-control-height;
     li {
       a {
         display: block;
+        color: #2E6E9E;
         padding: 0.4em;
-        &:hover { background: #4B7399;}
+        &:hover { 
+          background: #4B7399;
+          color: white;
+        }
       }
     }
   }
