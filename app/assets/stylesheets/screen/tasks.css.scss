@@ -3,17 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #todo {
-  border: 1px solid white;
-}
-#todo.ui-sortable {
-  border: 1px solid black;
+  .placeholder {
+    background-color: #cfcfcf;
+    height: 20px;
+  }
   div {
-    cursor: move;
+    border: 1px solid white;
+    background: white;
+    margin: 7px 0 0 0;
+    padding: 2px;
+    line-height: 20px;
   }
-  input#task_ids_ {
-    display: none;
+  &.ui-sortable {
+    div {
+      padding-left: 23px;
+      border: 1px solid black;
+      cursor: move;
+    }
+    input#task_ids_ {
+      display: none;
+    }
   }
 }
+
 .sort-control {
   span {
     text-decoration: underline;

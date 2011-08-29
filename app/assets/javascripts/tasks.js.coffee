@@ -9,7 +9,8 @@ jQuery ->
     $('#todo').sortable
       axis:'y',
       items: 'div',
-      scroll: true
+      scroll: true,
+      placeholder: 'placeholder'
     return
 
   $('body.tasks #save').click ->

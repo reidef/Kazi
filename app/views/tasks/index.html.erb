@@ -1,37 +1,41 @@
 <h1>Task List</h1>
 
-<%= link_to 'Daily List', daily_tasks_path %>
+<p><%= link_to 'Daily List', daily_tasks_path %></p>
 
-<%= form_tag complete_tasks_path, :method => :put do %>
-  <div class='sort-control'>
-    <span id='sort'>Sort</span>
-    <span id='save'>Save</span>
-  </div>
-  <div id='todo'>
-  <% @tasks.todo.each do |task| %>
-    <div id='tasks_<%= task.id %>'>
-      <%= check_box_tag "task_ids[]", task.id, false, :disabled => !children_complete?(task) %>
-      <%= link_to task.project.project_num, task.project if task.project %>
-      <%= task.title %>
-      <%= link_to 'Edit', edit_task_path(task) %>
+<section>
+  <h2 class='fieldset'>To Do List</h2>
+  <%= form_tag complete_tasks_path, :method => :put do %>
+    <div class='sort-control'>
+      <span id='sort'>Sort</span>
+      <span id='save'>Save</span>
     </div>
-  <% end %>
-  </div>
-  <%= submit_tag "Mark as complete" %>
-<% end %>
-
-<div class='task-form'>
-  <h3>Add a task without a project:</h3>
-  <%= render 'tasks/form', :task => @user.tasks.build %>
-</div>
-
-<h2>Completed tasks</h2>
-<%= form_tag uncomplete_tasks_path, :method => :put do %>
-  <% @tasks.complete.each do |task| %>
-    <div>
-      <%= check_box_tag "task_ids[]", task.id %>
-      <%= task.title %> at <%= task.completed_at %>
+    <div id='todo'>
+    <% @tasks.todo.each do |task| %>
+      <div id='tasks_<%= task.id %>'>
+        <%= check_box_tag "task_ids[]", task.id, false, :disabled => !children_complete?(task) %>
+        <%= link_to task.project.project_num, task.project if task.project %>
+        <%= task.title %>
+        <%= link_to 'Edit', edit_task_path(task) %>
+      </div>
+    <% end %>
     </div>
+    <%= submit_tag "Mark as complete" %>
   <% end %>
-  <%= submit_tag "Return to todo list" %>
-<% end %>
+  <div class='task-form'>
+    <h3>Add a task without a project:</h3>
+    <%= render 'tasks/form', :task => @user.tasks.build %>
+  </div>
+</section>
+
+<section>
+  <h2 class='fieldset'>Completed tasks</h2>
+  <%= form_tag uncomplete_tasks_path, :method => :put do %>
+    <% @tasks.complete.each do |task| %>
+      <div>
+        <%= check_box_tag "task_ids[]", task.id %>
+        <%= task.title %> at <%= task.completed_at %>
+      </div>
+    <% end %>
+    <%= submit_tag "Return to todo list" %>
+  <% end %>
+</section>
