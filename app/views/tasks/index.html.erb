@@ -33,7 +33,7 @@
     <% @tasks.complete.each do |task| %>
       <div>
         <%= check_box_tag "task_ids[]", task.id %>
-        <%= task.title %> at <%= task.completed_at %>
+        <%= task.title %> <small><%= time_ago_in_words(task.completed_at) %> ago</small>
       </div>
     <% end %>
     <%= submit_tag "Return to todo list" %>
