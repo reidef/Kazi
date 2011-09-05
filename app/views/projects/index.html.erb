@@ -5,14 +5,12 @@
     <th>Number</th>
     <th>Name</th>
     <th>Location</th>
-    <th></th>
   </tr>
 <% @organization.projects.each do |project| %>
   <tr>
-    <td><%= project.project_num %></td>
+    <td><%= link_to project.project_num, project %></td>
     <td><%= project.name %></td>
     <td><%= project.location %></td>
-    <td><%= link_to "Details", project %></td>
   </tr>
 <% end %>
 </table>
