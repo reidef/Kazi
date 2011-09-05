@@ -16,18 +16,28 @@ body.projects {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    background: url(vline.png) repeat-y;
     ul {
-      margin: 0 0 0 25px;
+      margin-left: 10px;
       padding: 0;
       list-style-type: none;
+      background: url(vline.png) repeat-y;
     }
     li {
-      margin: 7px 0 0 0;
-      padding: 0;
+      margin: 0;
+      padding: 0 12px;
+      line-height: 20px;
+      background: url(node.png) no-repeat;
+      &:last-child {
+        background: #fff url(lastnode.png) no-repeat;
+      }
       div  {
         border: 1px solid white;
-        padding: 3px;
+        padding: 0;
         margin: 0;
+        span.complete {
+          text-decoration: line-through;
+        }
       }    
     }
     &.ui-sortable li div {
